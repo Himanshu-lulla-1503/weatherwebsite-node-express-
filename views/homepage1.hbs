@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+		<meta charset="UTF-08">
+		<title>Weatherify</title>
+		<!--Boostrap 4 cdn link -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0-2/css/all.min.css" integrity="sha512-uNOFYDWi8Y7/BN/9S2QDx/BVTEvSwdrZ53NHLgt+fDTdyQeOwmBpHrLrxOT3TQn78H0QKJWLvD7hsDOZ9Gk45A==" crossorigin="anonymous" />
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	    <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+         <link rel="icon" href="img/download.jpg">
+	    <style type="text/css">
+	    	*{
+	    		margin: 0;
+	    		padding: 0;
+	    		box-sizing: border-box;
+	    		font-family: 'Quicksand', sans-serif;
+	    	}
+	    	.main{
+	    		height: 60vh;
+	    		width: 60vw;
+	    		background: #fff;
+	    		color:#D5F5F1;
+	    		font-weight:900;
+	    		background:linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),url('img/hazy.jpg');
+	    		background-repeat: no-repeat;
+	    		background-position: center;
+	    		background-attachment: fixed;
+	    		background-size: cover;
+	    		overflow-x: hidden;
+	    		overflow-y: hidden;
+
+	    	}
+	    	.navdiv{
+	    		background:linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/hazy.jpg');
+	    		background-repeat: no-repeat !important;
+	    		background-position: center !important;
+	    		background-attachment: fixed !important;
+	    		background-size: cover !important;
+	    		
+	    		
+	    	}
+	    	.main>.fas{
+	    		color: yellow;
+	    	}
+	    	.main1{
+	    		background:linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/hazy.jpg');
+	    		background-repeat: no-repeat;
+	    		background-position: center;
+	    		background-attachment: fixed;
+	    		background-size: cover;
+	    		height: 100vh !important;
+	    		width: 100% !important;
+	    	}
+	    	ul>li>a{
+	    		font-size: 120% !important;
+	    	}
+	    	.far{
+	    		animation: rotate linear 2s infinite;
+	    	}
+	    	@keyframes rotate{
+	    		0%{
+	    			transform: rotate(0deg);
+	    		}
+	    		100%{
+	    			transform: rotate(360deg);
+	    		}
+
+	    	}
+	    	.weatherinfo{
+	    		display: flex;
+	    		align-items: center;
+	    	
+	    	}
+	    	@media screen and (max-width:900px){
+	    		.main{
+	    			width: 95%;
+	    			height:55vh;
+
+
+	    		}
+	    	}
+	    	@media screen and (max-width:1200px){
+	    		.inner>div>h3,.date>h3{
+	    			font-size:140%;
+	    		}
+
+	    	}
+	    		@media screen and (max-width:650px){
+	    		.inner>div>h3,.date>h3{
+	    			font-size:130%;
+	    		}
+	    		#currentweathericon>.fas{
+	    			font-size:700% !important;
+
+	    		}
+
+	    	}
+	    	@media screen and (max-width:550px){
+	    		.inner>div>h3,.date>h3{
+	    			font-size:100%;
+	    		}
+	    		#currentweathericon>.fas{
+	    			font-size:500% !important;
+
+	    		}
+
+	    	}
+	    	@media screen and (max-width:400px){
+	    		.inner>div>h3,.date>h3{
+	    			font-size:80%;
+	    		}
+	    		#currentweathericon>.fas{
+	    			font-size:500% !important;
+
+	    		}
+
+	    	}
+	    	@media screen and (max-width:350px){
+	    		.inner>div>h3,.date>h3{
+	    			font-size:73%;
+	    		}
+	    		
+	    	}
+
+	    	
+	    
+	    </style>
+
+</head>
+<body>
+	<div class="container-fluid  navdiv">
+	<div class="row">
+<nav class="navbar w-100 navbar-dark customnav  d-flex justify-content-between flex-wrap ">
+	<a class="navbar-brand mx-auto  mx-sm-0 icon" href="#"><i class="far fa-sun "></i> Weatherify <i class="far fa-sun"></i></a>
+	<form class="form-inline mt-2 my-lg-0 mx-auto mx-sm-0 ">
+		<div class="input-group">
+			<input class="form-control mr-sm-1" type="search" id="cityname" placeholder="Search" aria-label="Search" autocomplete="off">
+			<div class="input-group-append">
+			<button class="btn btn-outline-secondary " type="submit" id="searchbtn"><i class="fas fa-search"></i></button>
+		</div>
+		</div>
+			
+	</form>
+</nav>
+</div>
+	</div>
+	<div class="container-fluid main1 d-flex justify-content-center align-items-center">
+		<div class="main row font-weight-bold">
+				<div class=" col-6  d-flex flex-column justify-content-center align-items-center">
+					<span  id="currentweathericon"><i class="fas fa-sun fa-9x"></i></span>
+					<div class=" date w-100 mt-md-3 mt-2">
+						<h3 class="display-6 text-center "><span id="day"></span><span class="ml-2" id="dayno">22 </span><span id="month" class="ml-2"> Jan</span></h3>
+
+					</div>
+				</div>
+				<div class="col-6 weatherinfo">
+					<div class="inner w-100">
+					<div class="city-country w-100">
+						<h3 class="display-6 text-center"><span id="city">Enter City</span>,(<span id="country"></span>)</h3><br>
+					</div>
+					<div class="currenttemp w-100">
+						<h3 class="display-6 text-center ">Temperature:<span class="ml-1 ml-md-3  text-center" id="temp">...</span><span class=" metricicon">&deg;C</span></h3><br>
+					</div>
+					<div class="mintemp w-100">
+						<h3 class="display-6 text-center ">Min-Temp:<span class="ml-1 ml-md-3  text-center" id="mintemp">...</span><span class="metricicon">&deg;C</span></h3><br>
+					</div>
+					<div class="max-temp w-100">
+						<h3 class="display-6 text-center ">Max-Temp:<span class="ml-1 ml-md-3 text-center" id="maxtemp">...</span><span class="metricicon">&deg;C</span></h3><br>
+					</div>
+					<div class="wind w-100">
+						<h3 class="display-6 text-center">Condition:<span class="ml-1 ml-md-3 " id="weathercondition">...</span></h3><br>
+					</div>
+				</div>
+				</div>
+
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(()=>{
+			const days=["Sun","Mon","Tue","Wed","Thurs","Fri","Sat"];
+			const month=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+			const date = new Date();
+			$('#dayno').html(date.getDate());
+			$('#day').html(days[date.getDay()]);
+			$('#month').html(month[date.getMonth()]);
+			const time=date.getHours();
+			$('.metricicon').hide();
+		
+			const update = (data)=>{
+				if(data.cod=="404"){
+					$('.metricicon').hide();
+					alert('Entered city data not found');
+					$('#temp').html('Not found');
+					$('#mintemp').html('Not found');
+					$('#maxtemp').html('Not found');
+					$('#weathercondition').html('Not Found');
+
+				}
+				else if(data.cod=="200"){
+					$('.metricicon').show();
+					const temp=data.main.temp;
+					const temp_min=data.main.temp_min;
+					const temp_max=data.main.temp_max;
+					const weathericon=data.weather[0].main;
+					const city=data.name;
+					const country=data.sys.country;
+					$('#city').html(city);
+					$('#country').html(country);
+					$('#temp').html(temp);
+					$('#mintemp').html(temp_min);
+					$('#maxtemp').html(temp_max);
+					$('#weathercondition').html(weathericon);
+					if(weathericon=="Clear"){
+						if(time<17){
+						$('.navdiv').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('img/sun1.jpg') center/cover no-repeat fixed");
+
+						$('.main1').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/sun1.jpg') center/cover no-repeat fixed");
+						$('.main').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),url('img/sun1.jpg') center/cover no-repeat fixed");
+						$('#currentweathericon').html('<i class="fas fa-sun fa-9x"></i>');
+						$('#currentweathericon').css("color","#DFF715");
+						$('.main').css("transition","background-image 0.5s ease");
+						
+						}
+						else{
+						$('.navdiv').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('img/sunset.jpg') center/cover no-repeat fixed");
+
+						$('.main1').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/sunset.jpg') center/cover no-repeat fixed");
+						$('.main').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),url('img/sunset.jpg') center/cover no-repeat fixed");
+						$('#currentweathericon').html('<i class="fas fa-moon fa-9x"></i>');
+						$('#currentweathericon').css("color","#F4F1C9");
+						$('.main').css("transition","background-image 0.5s ease");
+						
+
+						}
+					
+					}
+					else if(weathericon=="Haze"){
+						if(time<18){
+						$('.navdiv').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('img/hazy.jpg') center/cover no-repeat fixed");
+
+						$('.main1').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/hazy.jpg') center/cover no-repeat fixed");
+						$('.main').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),url('img/hazy.jpg') center/cover no-repeat fixed");
+						$('#currentweathericon').html('<i class="fas fa-cloud-sun fa-9x"></i>');
+						$('#currentweathericon').css("color","#F4F1C9");
+
+						$('.main').css("transition","background-image 0.5s ease");
+					}
+					else{
+						$('.navdiv').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('img/hazy.jpg') center/cover no-repeat fixed");
+
+							$('.main1').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/hazy.jpg') center/cover no-repeat fixed");
+						$('.main').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),url('img/hazy.jpg') center/cover no-repeat fixed");
+						$('#currentweathericon').html('<i class="fas fa-cloud-moon fa-9x"></i>');
+						$('#currentweathericon').css("color","#F4F1C9");
+						$('.main').css("transition","background-image 0.5s ease");
+					}
+
+					}
+					else if(weathericon=="Clouds"){
+						$(".navdiv").css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('img/cloudy.jpg') center/cover no-repeat fixed");
+						$(".main1").css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/cloudy.jpg') center/cover no-repeat fixed");
+						$('.main').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),url('img/cloudy.jpg') center/cover no-repeat fixed");
+						$('#currentweathericon').html('<i class="fas fa-cloud fa-9x"></i>');
+						$('#currentweathericon').css("color","#C1BEBA");
+						$('.main').css("transition","background-image 0.5s ease");
+						
+						
+					}
+					else if(weathericon=="Smoke" || weathericon=="Fog"){
+					    $('.navdiv').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('img/smoky1.jpg') center/cover no-repeat fixed");
+
+						$('.main1').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/smoky1.jpg') center/cover no-repeat fixed");
+						$('.main').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url('img/smoky1.jpg') center/cover no-repeat fixed");
+						$('#currentweathericon').html('<i class="fas fa-smog fa-9x"></i>');
+						$('#currentweathericon').css("color","#738276");
+						$('.main').css("transition","background-image 0.5s ease");
+						
+
+					}
+
+
+				}
+			}
+
+
+
+
+
+
+			$('#searchbtn').click((e)=>{
+				e.preventDefault();
+				const cityname=$('#cityname').val();
+				if(cityname==""){
+					alert('pls enter something to fetch data');
+				}
+				else{
+				const getinfo= async ()=>{
+					const url=`http://api.openweathermap.org/data/2.5/weather?q=${cityname}&units=metric&appid=3760772b2e19807ed240bb8121ffbd6f`;
+					const data=await fetch(url);
+					const res=await data.json();
+					update(res);
+				}
+				getinfo();
+			}
+
+
+			});
+
+		});
+	</script>
+</body>
+</html>
