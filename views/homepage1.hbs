@@ -306,7 +306,7 @@
 				}
 				else{
 				const getinfo= async ()=>{
-					const url=`http://api.openweathermap.org/data/2.5/weather?q=${cityname}&units=metric&appid=3760772b2e19807ed240bb8121ffbd6f`;
+					const url=`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&units=metric&appid=3760772b2e19807ed240bb8121ffbd6f`;
 					const data=await fetch(url);
 					const res=await data.json();
 					update(res);
