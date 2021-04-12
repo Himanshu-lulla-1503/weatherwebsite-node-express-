@@ -226,7 +226,7 @@
 					$('#maxtemp').html(temp_max);
 					$('#weathercondition').html(weathericon);
 					if(weathericon=="Clear"){
-						if(time<17){
+						if(time<18 && time>7){
 						$('.navdiv').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('img/sun1.jpg') center/cover no-repeat fixed");
 
 						$('.main1').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/sun1.jpg') center/cover no-repeat fixed");
@@ -250,7 +250,7 @@
 					
 					}
 					else if(weathericon=="Haze"){
-						if(time<18){
+						if(time<18 && time>7){
 						$('.navdiv').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('img/hazy.jpg') center/cover no-repeat fixed");
 
 						$('.main1').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/hazy.jpg') center/cover no-repeat fixed");
@@ -272,16 +272,28 @@
 
 					}
 					else if(weathericon=="Clouds"){
+						if(time<18 && time>7){
 						$(".navdiv").css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('img/cloudy.jpg') center/cover no-repeat fixed");
 						$(".main1").css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/cloudy.jpg') center/cover no-repeat fixed");
 						$('.main').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),url('img/cloudy.jpg') center/cover no-repeat fixed");
-						$('#currentweathericon').html('<i class="fas fa-cloud fa-9x"></i>');
+						$('#currentweathericon').html('<i class="fas fa-cloud-sun fa-9x"></i>');
 						$('#currentweathericon').css("color","#C1BEBA");
 						$('.main').css("transition","background-image 0.5s ease");
+					}
+					else{
+						$(".navdiv").css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('img/cloudy.jpg') center/cover no-repeat fixed");
+						$(".main1").css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/cloudy.jpg') center/cover no-repeat fixed");
+						$('.main').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),url('img/cloudy.jpg') center/cover no-repeat fixed");
+						$('#currentweathericon').html('<i class="fas fa-cloud-moon fa-9x"></i>');
+						$('#currentweathericon').css("color","#C1BEBA");
+						$('.main').css("transition","background-image 0.5s ease");
+
+					}
 						
 						
 					}
 					else if(weathericon=="Smoke" || weathericon=="Fog" || weathericon=="mist"){
+
 					    $('.navdiv').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('img/smoky1.jpg') center/cover no-repeat fixed");
 
 						$('.main1').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/smoky1.jpg') center/cover no-repeat fixed");
@@ -293,14 +305,26 @@
 
 					}
 					else if(weathericon=="Rain"){
+						if(time<18 && time>7){
+
 						 $('.navdiv').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('img/rainy2.jpg') center/cover no-repeat fixed");
 						$('.main1').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/rainy2.jpg') center/cover no-repeat fixed");
 						$('.main').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url('img/rainy2.jpg') center/cover no-repeat fixed");
-						$('#currentweathericon').html('<i class="fas fa-cloud-rain"></i>');
+						$('#currentweathericon').html('<i class="fas fa-cloud-sun-rain"></i>');
 						$('#currentweathericon').css("color","#C1BEBA");
 						$('.main').css("transition","background-image 0.5s ease");
+					}
+					else{
+						 $('.navdiv').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('img/rainy2.jpg') center/cover no-repeat fixed");
+						$('.main1').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),url('img/rainy2.jpg') center/cover no-repeat fixed");
+						$('.main').css("background","linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url('img/rainy2.jpg') center/cover no-repeat fixed");
+						$('#currentweathericon').html('<i class="fas fa-cloud-moon-rain"></i>');
+						$('#currentweathericon').css("color","#C1BEBA");
+						$('.main').css("transition","background-image 0.5s ease");
+
 						
 
+					}
 					}
 
 

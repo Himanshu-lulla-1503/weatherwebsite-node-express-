@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no">
+		<meta charset="UTF-08">
+		<title>CNBJ|Weather</title>
+		<!--Boostrap 4 cdn link -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	    <link rel="icon" type="logo/png" href="img/loginlogo.png">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<div class="form-group">
+			<label for="city">Enter City Name</label>
+			<input type="text" class="form-control" placeholder="Enter city name" required id="city" name="city">
+
+		</div>
+		<input type="submit" class="btn btn-success" value="Fetch" id="fetchbtn">
+		<div id="result"></div>
+	</div>
+<script type="text/javascript">
+	$(document).ready(()=>{
+		$('#fetchbtn').click((e)=>{
+			e.preventDefault();
+			const city = $('#city').val();
+			const url=`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=3760772b2e19807ed240bb8121ffbd6f`
+			const getresponse = async ()=>{
+				try{
+					const res= await fetch(url);
+
+					$('#result').text(res);
+				}catch(err){
+					console.log(err);
+				}
+			
+
+			}
+
+		});
+
+	});
+</script>	
+</body>
+</html>
